@@ -3,10 +3,8 @@
 
 @class Loan;
 
-@interface LFLoanListCell : UITableViewCell
+@interface LFLoanDetailsViewController : UIViewController
 
 @property (strong, nonatomic) Loan *loan;
-
-+ (NSString *)reuseIdentifier;
 
 @end

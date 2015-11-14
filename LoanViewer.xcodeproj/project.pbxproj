@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		0A9112BA1BF67303005A1BE9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9112B91BF67303005A1BE9 /* main.m */; };
 		0A9112BD1BF67303005A1BE9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9112BC1BF67303005A1BE9 /* AppDelegate.m */; };
-		0A9112C01BF67303005A1BE9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9112BF1BF67303005A1BE9 /* ViewController.m */; };
 		0A9112C31BF67303005A1BE9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A9112C11BF67303005A1BE9 /* Main.storyboard */; };
 		0A9112C51BF67303005A1BE9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A9112C41BF67303005A1BE9 /* Assets.xcassets */; };
 		0A9112C81BF67303005A1BE9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A9112C61BF67303005A1BE9 /* LaunchScreen.storyboard */; };
@@ -29,6 +28,7 @@
 		0A9113591BF7A85E005A1BE9 /* LFLoanFeeder.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9113581BF7A85E005A1BE9 /* LFLoanFeeder.m */; };
 		0A91135D1BF7AC35005A1BE9 /* LFLoanListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A91135C1BF7AC35005A1BE9 /* LFLoanListViewController.m */; };
 		0A9113601BF7B8F7005A1BE9 /* LFLoanListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A91135F1BF7B8F7005A1BE9 /* LFLoanListCell.m */; };
+		0A9113631BF7C03F005A1BE9 /* LFLoanDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9113621BF7C03F005A1BE9 /* LFLoanDetailsViewController.m */; };
 		4EC448E238C766BFF14CA29B /* libPods-LoanViewer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C6BF658C6FEF33A8FFDC087 /* libPods-LoanViewer.a */; };
 /* End PBXBuildFile section */
 
@@ -56,8 +56,6 @@
 		0A9112B91BF67303005A1BE9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0A9112BB1BF67303005A1BE9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = LoanViewer/AppDelegate.h; sourceTree = SOURCE_ROOT; };
 		0A9112BC1BF67303005A1BE9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = LoanViewer/AppDelegate.m; sourceTree = SOURCE_ROOT; };
-		0A9112BE1BF67303005A1BE9 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		0A9112BF1BF67303005A1BE9 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		0A9112C21BF67303005A1BE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0A9112C41BF67303005A1BE9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0A9112C71BF67303005A1BE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -95,6 +93,8 @@
 		0A91135C1BF7AC35005A1BE9 /* LFLoanListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFLoanListViewController.m; sourceTree = "<group>"; };
 		0A91135E1BF7B8F7005A1BE9 /* LFLoanListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFLoanListCell.h; sourceTree = "<group>"; };
 		0A91135F1BF7B8F7005A1BE9 /* LFLoanListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFLoanListCell.m; sourceTree = "<group>"; };
+		0A9113611BF7C03F005A1BE9 /* LFLoanDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFLoanDetailsViewController.h; sourceTree = "<group>"; };
+		0A9113621BF7C03F005A1BE9 /* LFLoanDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFLoanDetailsViewController.m; sourceTree = "<group>"; };
 		6C6BF658C6FEF33A8FFDC087 /* libPods-LoanViewer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LoanViewer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -153,8 +153,6 @@
 				0A9113301BF68F1F005A1BE9 /* Model */,
 				0A91135A1BF7AB95005A1BE9 /* Controller */,
 				0A9113501BF798EC005A1BE9 /* LoanFeeder */,
-				0A9112BE1BF67303005A1BE9 /* ViewController.h */,
-				0A9112BF1BF67303005A1BE9 /* ViewController.m */,
 				0A9112C11BF67303005A1BE9 /* Main.storyboard */,
 				0A9112EE1BF6870F005A1BE9 /* LoanDataModel.xcdatamodeld */,
 				0A9112C41BF67303005A1BE9 /* Assets.xcassets */,
@@ -243,6 +241,8 @@
 				0A91135C1BF7AC35005A1BE9 /* LFLoanListViewController.m */,
 				0A91135E1BF7B8F7005A1BE9 /* LFLoanListCell.h */,
 				0A91135F1BF7B8F7005A1BE9 /* LFLoanListCell.m */,
+				0A9113611BF7C03F005A1BE9 /* LFLoanDetailsViewController.h */,
+				0A9113621BF7C03F005A1BE9 /* LFLoanDetailsViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -430,10 +430,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A91134B1BF68F4F005A1BE9 /* Loan+CoreDataProperties.m in Sources */,
-				0A9112C01BF67303005A1BE9 /* ViewController.m in Sources */,
 				0A9112BD1BF67303005A1BE9 /* AppDelegate.m in Sources */,
 				0A91134C1BF68F4F005A1BE9 /* Loan.m in Sources */,
 				0A9112BA1BF67303005A1BE9 /* main.m in Sources */,
+				0A9113631BF7C03F005A1BE9 /* LFLoanDetailsViewController.m in Sources */,
 				0A9113481BF68F4F005A1BE9 /* LoanList.m in Sources */,
 				0A9113591BF7A85E005A1BE9 /* LFLoanFeeder.m in Sources */,
 				0A9113491BF68F4F005A1BE9 /* Paging+CoreDataProperties.m in Sources */,

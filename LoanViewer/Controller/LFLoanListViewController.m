@@ -1,6 +1,7 @@
 
 #import "LFLoanListViewController.h"
 #import "LFLoanListCell.h"
+#import "LFLoanDetailsViewController.h"
 #import "LFLoanFeeder.h"
 #import "Loan.h"
 
@@ -13,8 +14,11 @@
 
 @implementation LFLoanListViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
+    
+    self.title = @"Loans";
     
     [[LFLoanFeeder sharedFeeder] retrieveLoansFeedForSuccess:^(NSArray *loans) {
         self.loans = loans;
@@ -37,6 +41,19 @@
     cell.loan = self.loans[indexPath.row];
     
     return cell;
+}
+
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"ShowDetailsSegue"])
+    {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        Loan *selectedLoan = self.loans[indexPath.row];
+        
+        LFLoanDetailsViewController *detailsViewController = (LFLoanDetailsViewController *)[segue destinationViewController];
+        detailsViewController.loan = selectedLoan;
+    }
 }
 
 @end
