@@ -28,6 +28,7 @@
 		0A91134E1BF68F4F005A1BE9 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9113441BF68F4F005A1BE9 /* Location.m */; };
 		0A9113591BF7A85E005A1BE9 /* LFLoanFeeder.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9113581BF7A85E005A1BE9 /* LFLoanFeeder.m */; };
 		0A91135D1BF7AC35005A1BE9 /* LFLoanListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A91135C1BF7AC35005A1BE9 /* LFLoanListViewController.m */; };
+		0A9113601BF7B8F7005A1BE9 /* LFLoanListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A91135F1BF7B8F7005A1BE9 /* LFLoanListCell.m */; };
 		4EC448E238C766BFF14CA29B /* libPods-LoanViewer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C6BF658C6FEF33A8FFDC087 /* libPods-LoanViewer.a */; };
 /* End PBXBuildFile section */
 
@@ -92,6 +93,8 @@
 		0A9113581BF7A85E005A1BE9 /* LFLoanFeeder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFLoanFeeder.m; sourceTree = "<group>"; };
 		0A91135B1BF7AC35005A1BE9 /* LFLoanListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFLoanListViewController.h; sourceTree = "<group>"; };
 		0A91135C1BF7AC35005A1BE9 /* LFLoanListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFLoanListViewController.m; sourceTree = "<group>"; };
+		0A91135E1BF7B8F7005A1BE9 /* LFLoanListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFLoanListCell.h; sourceTree = "<group>"; };
+		0A91135F1BF7B8F7005A1BE9 /* LFLoanListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFLoanListCell.m; sourceTree = "<group>"; };
 		6C6BF658C6FEF33A8FFDC087 /* libPods-LoanViewer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LoanViewer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -238,6 +241,8 @@
 			children = (
 				0A91135B1BF7AC35005A1BE9 /* LFLoanListViewController.h */,
 				0A91135C1BF7AC35005A1BE9 /* LFLoanListViewController.m */,
+				0A91135E1BF7B8F7005A1BE9 /* LFLoanListCell.h */,
+				0A91135F1BF7B8F7005A1BE9 /* LFLoanListCell.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -436,6 +441,7 @@
 				0A91134E1BF68F4F005A1BE9 /* Location.m in Sources */,
 				0A9113461BF68F4F005A1BE9 /* Geo.m in Sources */,
 				0A9113451BF68F4F005A1BE9 /* Geo+CoreDataProperties.m in Sources */,
+				0A9113601BF7B8F7005A1BE9 /* LFLoanListCell.m in Sources */,
 				0A91135D1BF7AC35005A1BE9 /* LFLoanListViewController.m in Sources */,
 				0A9112F01BF6870F005A1BE9 /* LoanDataModel.xcdatamodeld in Sources */,
 				0A9113471BF68F4F005A1BE9 /* LoanList+CoreDataProperties.m in Sources */,

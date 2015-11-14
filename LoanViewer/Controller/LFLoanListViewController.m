@@ -1,5 +1,6 @@
 
 #import "LFLoanListViewController.h"
+#import "LFLoanListCell.h"
 #import "LFLoanFeeder.h"
 #import "Loan.h"
 
@@ -32,10 +33,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    LFLoanListCell *cell = [tableView dequeueReusableCellWithIdentifier:[LFLoanListCell reuseIdentifier] forIndexPath:indexPath];
+    cell.loan = self.loans[indexPath.row];
     
-    Loan *loan = self.loans[indexPath.row];
-    cell.textLabel.text = loan.name;
     return cell;
 }
 
