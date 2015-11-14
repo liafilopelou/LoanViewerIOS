@@ -15,6 +15,17 @@
 		0A9112C81BF67303005A1BE9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A9112C61BF67303005A1BE9 /* LaunchScreen.storyboard */; };
 		0A9112D31BF67304005A1BE9 /* LoanViewerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9112D21BF67304005A1BE9 /* LoanViewerTests.m */; };
 		0A9112DE1BF67304005A1BE9 /* LoanViewerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9112DD1BF67304005A1BE9 /* LoanViewerUITests.m */; };
+		0A9112F01BF6870F005A1BE9 /* LoanDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0A9112EE1BF6870F005A1BE9 /* LoanDataModel.xcdatamodeld */; };
+		0A9113451BF68F4F005A1BE9 /* Geo+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9113321BF68F4F005A1BE9 /* Geo+CoreDataProperties.m */; };
+		0A9113461BF68F4F005A1BE9 /* Geo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9113341BF68F4F005A1BE9 /* Geo.m */; };
+		0A9113471BF68F4F005A1BE9 /* LoanList+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9113361BF68F4F005A1BE9 /* LoanList+CoreDataProperties.m */; };
+		0A9113481BF68F4F005A1BE9 /* LoanList.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9113381BF68F4F005A1BE9 /* LoanList.m */; };
+		0A9113491BF68F4F005A1BE9 /* Paging+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A91133A1BF68F4F005A1BE9 /* Paging+CoreDataProperties.m */; };
+		0A91134A1BF68F4F005A1BE9 /* Paging.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A91133C1BF68F4F005A1BE9 /* Paging.m */; };
+		0A91134B1BF68F4F005A1BE9 /* Loan+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A91133E1BF68F4F005A1BE9 /* Loan+CoreDataProperties.m */; };
+		0A91134C1BF68F4F005A1BE9 /* Loan.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9113401BF68F4F005A1BE9 /* Loan.m */; };
+		0A91134D1BF68F4F005A1BE9 /* Location+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9113421BF68F4F005A1BE9 /* Location+CoreDataProperties.m */; };
+		0A91134E1BF68F4F005A1BE9 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9113441BF68F4F005A1BE9 /* Location.m */; };
 		4EC448E238C766BFF14CA29B /* libPods-LoanViewer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C6BF658C6FEF33A8FFDC087 /* libPods-LoanViewer.a */; };
 /* End PBXBuildFile section */
 
@@ -40,8 +51,8 @@
 		05E6155C637505482A74FCCA /* Pods-LoanViewer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoanViewer.release.xcconfig"; path = "Pods/Target Support Files/Pods-LoanViewer/Pods-LoanViewer.release.xcconfig"; sourceTree = "<group>"; };
 		0A9112B51BF67303005A1BE9 /* LoanViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoanViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A9112B91BF67303005A1BE9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		0A9112BB1BF67303005A1BE9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		0A9112BC1BF67303005A1BE9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		0A9112BB1BF67303005A1BE9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = LoanViewer/AppDelegate.h; sourceTree = SOURCE_ROOT; };
+		0A9112BC1BF67303005A1BE9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = LoanViewer/AppDelegate.m; sourceTree = SOURCE_ROOT; };
 		0A9112BE1BF67303005A1BE9 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		0A9112BF1BF67303005A1BE9 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		0A9112C21BF67303005A1BE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -54,6 +65,27 @@
 		0A9112D91BF67304005A1BE9 /* LoanViewerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoanViewerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A9112DD1BF67304005A1BE9 /* LoanViewerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoanViewerUITests.m; sourceTree = "<group>"; };
 		0A9112DF1BF67304005A1BE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0A9112EF1BF6870F005A1BE9 /* LoanDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LoanDataModel.xcdatamodel; sourceTree = "<group>"; };
+		0A9113311BF68F4F005A1BE9 /* Geo+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Geo+CoreDataProperties.h"; path = "Model/Geo+CoreDataProperties.h"; sourceTree = "<group>"; };
+		0A9113321BF68F4F005A1BE9 /* Geo+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Geo+CoreDataProperties.m"; path = "Model/Geo+CoreDataProperties.m"; sourceTree = "<group>"; };
+		0A9113331BF68F4F005A1BE9 /* Geo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Geo.h; path = Model/Geo.h; sourceTree = "<group>"; };
+		0A9113341BF68F4F005A1BE9 /* Geo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Geo.m; path = Model/Geo.m; sourceTree = "<group>"; };
+		0A9113351BF68F4F005A1BE9 /* LoanList+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "LoanList+CoreDataProperties.h"; path = "Model/LoanList+CoreDataProperties.h"; sourceTree = "<group>"; };
+		0A9113361BF68F4F005A1BE9 /* LoanList+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "LoanList+CoreDataProperties.m"; path = "Model/LoanList+CoreDataProperties.m"; sourceTree = "<group>"; };
+		0A9113371BF68F4F005A1BE9 /* LoanList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoanList.h; path = Model/LoanList.h; sourceTree = "<group>"; };
+		0A9113381BF68F4F005A1BE9 /* LoanList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoanList.m; path = Model/LoanList.m; sourceTree = "<group>"; };
+		0A9113391BF68F4F005A1BE9 /* Paging+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Paging+CoreDataProperties.h"; path = "Model/Paging+CoreDataProperties.h"; sourceTree = "<group>"; };
+		0A91133A1BF68F4F005A1BE9 /* Paging+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Paging+CoreDataProperties.m"; path = "Model/Paging+CoreDataProperties.m"; sourceTree = "<group>"; };
+		0A91133B1BF68F4F005A1BE9 /* Paging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Paging.h; path = Model/Paging.h; sourceTree = "<group>"; };
+		0A91133C1BF68F4F005A1BE9 /* Paging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Paging.m; path = Model/Paging.m; sourceTree = "<group>"; };
+		0A91133D1BF68F4F005A1BE9 /* Loan+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Loan+CoreDataProperties.h"; path = "Model/Loan+CoreDataProperties.h"; sourceTree = "<group>"; };
+		0A91133E1BF68F4F005A1BE9 /* Loan+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Loan+CoreDataProperties.m"; path = "Model/Loan+CoreDataProperties.m"; sourceTree = "<group>"; };
+		0A91133F1BF68F4F005A1BE9 /* Loan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Loan.h; path = Model/Loan.h; sourceTree = "<group>"; };
+		0A9113401BF68F4F005A1BE9 /* Loan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Loan.m; path = Model/Loan.m; sourceTree = "<group>"; };
+		0A9113411BF68F4F005A1BE9 /* Location+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Location+CoreDataProperties.h"; path = "Model/Location+CoreDataProperties.h"; sourceTree = "<group>"; };
+		0A9113421BF68F4F005A1BE9 /* Location+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Location+CoreDataProperties.m"; path = "Model/Location+CoreDataProperties.m"; sourceTree = "<group>"; };
+		0A9113431BF68F4F005A1BE9 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Location.h; path = Model/Location.h; sourceTree = "<group>"; };
+		0A9113441BF68F4F005A1BE9 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Location.m; path = Model/Location.m; sourceTree = "<group>"; };
 		6C6BF658C6FEF33A8FFDC087 /* libPods-LoanViewer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LoanViewer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -108,11 +140,12 @@
 		0A9112B71BF67303005A1BE9 /* LoanViewer */ = {
 			isa = PBXGroup;
 			children = (
-				0A9112BB1BF67303005A1BE9 /* AppDelegate.h */,
-				0A9112BC1BF67303005A1BE9 /* AppDelegate.m */,
+				0A91134F1BF69126005A1BE9 /* AppDelegate */,
+				0A9113301BF68F1F005A1BE9 /* Model */,
 				0A9112BE1BF67303005A1BE9 /* ViewController.h */,
 				0A9112BF1BF67303005A1BE9 /* ViewController.m */,
 				0A9112C11BF67303005A1BE9 /* Main.storyboard */,
+				0A9112EE1BF6870F005A1BE9 /* LoanDataModel.xcdatamodeld */,
 				0A9112C41BF67303005A1BE9 /* Assets.xcassets */,
 				0A9112C61BF67303005A1BE9 /* LaunchScreen.storyboard */,
 				0A9112C91BF67303005A1BE9 /* Info.plist */,
@@ -147,6 +180,42 @@
 			path = LoanViewerUITests;
 			sourceTree = "<group>";
 		};
+		0A9113301BF68F1F005A1BE9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0A9113311BF68F4F005A1BE9 /* Geo+CoreDataProperties.h */,
+				0A9113321BF68F4F005A1BE9 /* Geo+CoreDataProperties.m */,
+				0A9113331BF68F4F005A1BE9 /* Geo.h */,
+				0A9113341BF68F4F005A1BE9 /* Geo.m */,
+				0A9113351BF68F4F005A1BE9 /* LoanList+CoreDataProperties.h */,
+				0A9113361BF68F4F005A1BE9 /* LoanList+CoreDataProperties.m */,
+				0A9113371BF68F4F005A1BE9 /* LoanList.h */,
+				0A9113381BF68F4F005A1BE9 /* LoanList.m */,
+				0A9113391BF68F4F005A1BE9 /* Paging+CoreDataProperties.h */,
+				0A91133A1BF68F4F005A1BE9 /* Paging+CoreDataProperties.m */,
+				0A91133B1BF68F4F005A1BE9 /* Paging.h */,
+				0A91133C1BF68F4F005A1BE9 /* Paging.m */,
+				0A91133D1BF68F4F005A1BE9 /* Loan+CoreDataProperties.h */,
+				0A91133E1BF68F4F005A1BE9 /* Loan+CoreDataProperties.m */,
+				0A91133F1BF68F4F005A1BE9 /* Loan.h */,
+				0A9113401BF68F4F005A1BE9 /* Loan.m */,
+				0A9113411BF68F4F005A1BE9 /* Location+CoreDataProperties.h */,
+				0A9113421BF68F4F005A1BE9 /* Location+CoreDataProperties.m */,
+				0A9113431BF68F4F005A1BE9 /* Location.h */,
+				0A9113441BF68F4F005A1BE9 /* Location.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		0A91134F1BF69126005A1BE9 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				0A9112BB1BF67303005A1BE9 /* AppDelegate.h */,
+				0A9112BC1BF67303005A1BE9 /* AppDelegate.m */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
 		5D5CA3E7BB5A7B8A39E7249C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -175,7 +244,6 @@
 				0A9112B11BF67303005A1BE9 /* Sources */,
 				0A9112B21BF67303005A1BE9 /* Frameworks */,
 				0A9112B31BF67303005A1BE9 /* Resources */,
-				5FC45587251F1FCA881CE547 /* Embed Pods Frameworks */,
 				FAAD834B5F6500EF4BC1FEB6 /* Copy Pods Resources */,
 			);
 			buildRules = (
@@ -308,21 +376,6 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		5FC45587251F1FCA881CE547 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LoanViewer/Pods-LoanViewer-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		FAAD834B5F6500EF4BC1FEB6 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -345,9 +398,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A91134B1BF68F4F005A1BE9 /* Loan+CoreDataProperties.m in Sources */,
 				0A9112C01BF67303005A1BE9 /* ViewController.m in Sources */,
 				0A9112BD1BF67303005A1BE9 /* AppDelegate.m in Sources */,
+				0A91134C1BF68F4F005A1BE9 /* Loan.m in Sources */,
 				0A9112BA1BF67303005A1BE9 /* main.m in Sources */,
+				0A9113481BF68F4F005A1BE9 /* LoanList.m in Sources */,
+				0A9113491BF68F4F005A1BE9 /* Paging+CoreDataProperties.m in Sources */,
+				0A91134A1BF68F4F005A1BE9 /* Paging.m in Sources */,
+				0A91134E1BF68F4F005A1BE9 /* Location.m in Sources */,
+				0A9113461BF68F4F005A1BE9 /* Geo.m in Sources */,
+				0A9113451BF68F4F005A1BE9 /* Geo+CoreDataProperties.m in Sources */,
+				0A9112F01BF6870F005A1BE9 /* LoanDataModel.xcdatamodeld in Sources */,
+				0A9113471BF68F4F005A1BE9 /* LoanList+CoreDataProperties.m in Sources */,
+				0A91134D1BF68F4F005A1BE9 /* Location+CoreDataProperties.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -594,6 +658,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		0A9112EE1BF6870F005A1BE9 /* LoanDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0A9112EF1BF6870F005A1BE9 /* LoanDataModel.xcdatamodel */,
+			);
+			currentVersion = 0A9112EF1BF6870F005A1BE9 /* LoanDataModel.xcdatamodel */;
+			path = LoanDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 0A9112AD1BF67303005A1BE9 /* Project object */;
 }

@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import <RestKit/CoreData.h>
+#import <RestKit/RestKit.h>
 
 @interface AppDelegate ()
 
@@ -16,7 +18,54 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    NSURL *baseURL = [NSURL URLWithString:@"http://api.kivaws.org"];
+    RKObjectManager *objectManager = [RKObjectManager managerWithBaseURL:baseURL];
+    
+    NSManagedObjectModel *managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:nil];
+    RKManagedObjectStore *managedObjectStore = [[RKManagedObjectStore alloc] initWithManagedObjectModel:managedObjectModel];
+    objectManager.managedObjectStore = managedObjectStore;
+    [managedObjectStore createPersistentStoreCoordinator];
+    
+    NSString *storePath = [RKApplicationDataDirectory() stringByAppendingPathComponent:@"LoanViewerDB.sqlite"];
+    NSString *seedPath = [[NSBundle mainBundle] pathForResource:@"RKSeedDatabase" ofType:@"sqlite"];
+    NSError *error;
+    NSPersistentStore *persistentStore = [managedObjectStore addSQLitePersistentStoreAtPath:storePath fromSeedDatabaseAtPath:seedPath withConfiguration:nil options:nil error:&error];
+    NSAssert(persistentStore, @"Failed to add persistent store with error: %@", error);
+    [managedObjectStore createManagedObjectContexts];
+    
+    
+    RKEntityMapping *loanMapping = [RKEntityMapping mappingForEntityForName:@"Loan" inManagedObjectStore:managedObjectStore];
+    loanMapping.identificationAttributes = @[ @"loanId" ];
+    [loanMapping addAttributeMappingsFromDictionary:
+     @{
+       @"id" : @"loanId",
+       @"name" : @"name",
+       @"status" : @"status",
+       @"activity" : @"activity",
+       @"sector" : @"sector"
+       }
+     ];
+    
+    RKEntityMapping *locationMapping = [RKEntityMapping mappingForEntityForName:@"Location" inManagedObjectStore:managedObjectStore];
+    [loanMapping addAttributeMappingsFromDictionary:
+     @{
+       @"country_code" : @"countryCode",
+       @"country" : @"country",
+       @"town" : @"town"
+       }
+     ];
+    
+    [loanMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"location" toKeyPath:@"location" withMapping:locationMapping]];
+
+    
+    RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:loanMapping
+                                                                                            method:RKRequestMethodGET
+                                                                                       pathPattern:@"/v1/loans/search.json"
+                                                                                           keyPath:nil
+                                                                                       statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+    [objectManager addResponseDescriptor:responseDescriptor];
+    
     return YES;
 }
 
