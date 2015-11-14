@@ -26,6 +26,7 @@
 		0A91134C1BF68F4F005A1BE9 /* Loan.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9113401BF68F4F005A1BE9 /* Loan.m */; };
 		0A91134D1BF68F4F005A1BE9 /* Location+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9113421BF68F4F005A1BE9 /* Location+CoreDataProperties.m */; };
 		0A91134E1BF68F4F005A1BE9 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9113441BF68F4F005A1BE9 /* Location.m */; };
+		0A9113591BF7A85E005A1BE9 /* LFLoanFeeder.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9113581BF7A85E005A1BE9 /* LFLoanFeeder.m */; };
 		4EC448E238C766BFF14CA29B /* libPods-LoanViewer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C6BF658C6FEF33A8FFDC087 /* libPods-LoanViewer.a */; };
 /* End PBXBuildFile section */
 
@@ -86,6 +87,8 @@
 		0A9113421BF68F4F005A1BE9 /* Location+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Location+CoreDataProperties.m"; path = "Model/Location+CoreDataProperties.m"; sourceTree = "<group>"; };
 		0A9113431BF68F4F005A1BE9 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Location.h; path = Model/Location.h; sourceTree = "<group>"; };
 		0A9113441BF68F4F005A1BE9 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Location.m; path = Model/Location.m; sourceTree = "<group>"; };
+		0A9113571BF7A85E005A1BE9 /* LFLoanFeeder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFLoanFeeder.h; sourceTree = "<group>"; };
+		0A9113581BF7A85E005A1BE9 /* LFLoanFeeder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFLoanFeeder.m; sourceTree = "<group>"; };
 		6C6BF658C6FEF33A8FFDC087 /* libPods-LoanViewer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LoanViewer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -142,6 +145,7 @@
 			children = (
 				0A91134F1BF69126005A1BE9 /* AppDelegate */,
 				0A9113301BF68F1F005A1BE9 /* Model */,
+				0A9113501BF798EC005A1BE9 /* LoanFeeder */,
 				0A9112BE1BF67303005A1BE9 /* ViewController.h */,
 				0A9112BF1BF67303005A1BE9 /* ViewController.m */,
 				0A9112C11BF67303005A1BE9 /* Main.storyboard */,
@@ -214,6 +218,15 @@
 				0A9112BC1BF67303005A1BE9 /* AppDelegate.m */,
 			);
 			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		0A9113501BF798EC005A1BE9 /* LoanFeeder */ = {
+			isa = PBXGroup;
+			children = (
+				0A9113571BF7A85E005A1BE9 /* LFLoanFeeder.h */,
+				0A9113581BF7A85E005A1BE9 /* LFLoanFeeder.m */,
+			);
+			path = LoanFeeder;
 			sourceTree = "<group>";
 		};
 		5D5CA3E7BB5A7B8A39E7249C /* Pods */ = {
@@ -404,6 +417,7 @@
 				0A91134C1BF68F4F005A1BE9 /* Loan.m in Sources */,
 				0A9112BA1BF67303005A1BE9 /* main.m in Sources */,
 				0A9113481BF68F4F005A1BE9 /* LoanList.m in Sources */,
+				0A9113591BF7A85E005A1BE9 /* LFLoanFeeder.m in Sources */,
 				0A9113491BF68F4F005A1BE9 /* Paging+CoreDataProperties.m in Sources */,
 				0A91134A1BF68F4F005A1BE9 /* Paging.m in Sources */,
 				0A91134E1BF68F4F005A1BE9 /* Location.m in Sources */,

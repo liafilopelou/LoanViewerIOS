@@ -7,21 +7,29 @@
 //
 
 #import "ViewController.h"
+#import "LFLoanFeeder.h"
 
 @interface ViewController ()
+
+@property (strong, nonatomic) NSArray *loans;
 
 @end
 
 @implementation ViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    [[LFLoanFeeder sharedFeeder] retrieveLoansFeedForSuccess:^(NSArray *loans) {
+        self.loans = loans;
+    } failure:^{
+        NSLog(@"Error during feed retrieval");
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end
