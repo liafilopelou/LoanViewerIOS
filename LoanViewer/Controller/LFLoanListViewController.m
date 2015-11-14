@@ -18,7 +18,7 @@
 {
     [super viewDidLoad];
     
-    self.title = @"Loans";
+    self.title = NSLocalizedString(@"loans.title", nil);
     
     [[LFLoanFeeder sharedFeeder] retrieveLoansFeedForSuccess:^(NSArray *loans) {
         self.loans = loans;

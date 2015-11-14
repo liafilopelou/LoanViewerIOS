@@ -17,6 +17,8 @@
 {
     [super viewDidLoad];
     
+    self.title = self.loan.name;
+    
     self.statusLabel.text = self.loan.status;
     self.activityLabel.text = self.loan.activity;
     self.sectorLabel.text = self.loan.sector;

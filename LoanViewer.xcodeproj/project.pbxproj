@@ -29,6 +29,7 @@
 		0A91135D1BF7AC35005A1BE9 /* LFLoanListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A91135C1BF7AC35005A1BE9 /* LFLoanListViewController.m */; };
 		0A9113601BF7B8F7005A1BE9 /* LFLoanListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A91135F1BF7B8F7005A1BE9 /* LFLoanListCell.m */; };
 		0A9113631BF7C03F005A1BE9 /* LFLoanDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9113621BF7C03F005A1BE9 /* LFLoanDetailsViewController.m */; };
+		0A9113761BF7CBCB005A1BE9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0A9113781BF7CBCB005A1BE9 /* Localizable.strings */; };
 		4EC448E238C766BFF14CA29B /* libPods-LoanViewer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C6BF658C6FEF33A8FFDC087 /* libPods-LoanViewer.a */; };
 /* End PBXBuildFile section */
 
@@ -95,6 +96,10 @@
 		0A91135F1BF7B8F7005A1BE9 /* LFLoanListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFLoanListCell.m; sourceTree = "<group>"; };
 		0A9113611BF7C03F005A1BE9 /* LFLoanDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFLoanDetailsViewController.h; sourceTree = "<group>"; };
 		0A9113621BF7C03F005A1BE9 /* LFLoanDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFLoanDetailsViewController.m; sourceTree = "<group>"; };
+		0A91136C1BF7CB1E005A1BE9 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
+		0A91136D1BF7CB1E005A1BE9 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		0A9113771BF7CBCB005A1BE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0A9113791BF7CBD0005A1BE9 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6C6BF658C6FEF33A8FFDC087 /* libPods-LoanViewer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LoanViewer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -167,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				0A9112B91BF67303005A1BE9 /* main.m */,
+				0A9113781BF7CBCB005A1BE9 /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -351,6 +357,7 @@
 			knownRegions = (
 				en,
 				Base,
+				es,
 			);
 			mainGroup = 0A9112AC1BF67303005A1BE9;
 			productRefGroup = 0A9112B61BF67303005A1BE9 /* Products */;
@@ -370,6 +377,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A9112C81BF67303005A1BE9 /* LaunchScreen.storyboard in Resources */,
+				0A9113761BF7CBCB005A1BE9 /* Localizable.strings in Resources */,
 				0A9112C51BF67303005A1BE9 /* Assets.xcassets in Resources */,
 				0A9112C31BF67303005A1BE9 /* Main.storyboard in Resources */,
 			);
@@ -485,6 +493,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				0A9112C21BF67303005A1BE9 /* Base */,
+				0A91136C1BF7CB1E005A1BE9 /* es */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -493,8 +502,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				0A9112C71BF67303005A1BE9 /* Base */,
+				0A91136D1BF7CB1E005A1BE9 /* es */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		0A9113781BF7CBCB005A1BE9 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0A9113771BF7CBCB005A1BE9 /* Base */,
+				0A9113791BF7CBD0005A1BE9 /* es */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
