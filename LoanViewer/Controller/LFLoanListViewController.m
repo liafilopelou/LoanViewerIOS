@@ -31,6 +31,27 @@
 
 #pragma mark - Table view data source
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    if (self.loans.count > 0) {
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+        return 1;
+        
+    } else {
+        UILabel *noDataLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
+        noDataLabel.text = @"No data could be retrieved. \nPlease pull down to refresh.";
+        noDataLabel.numberOfLines = 0;
+        noDataLabel.textColor = [UIColor blackColor];
+        noDataLabel.textAlignment = NSTextAlignmentCenter;
+        [noDataLabel sizeToFit];
+        self.tableView.backgroundView = noDataLabel;
+        
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    }
+    
+    return 0;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.loans.count;
 }
