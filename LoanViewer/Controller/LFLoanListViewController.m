@@ -31,11 +31,16 @@
 - (void)requestLoans
 {
     [[LFLoanFeeder sharedFeeder] retrieveLoansFeedForSuccess:^(NSArray *loans) {
+        
         self.loans = loans;
         [self refreshView];
-    } failure:^{
-        [self refreshView];
-        NSLog(@"Error during feed retrieval");
+        
+    } failure:^(NSArray *loans) {
+        
+        if (loans) {
+            [self refreshView];
+            [self showNoUpdateAlert];
+        }
     }];
 }
 
@@ -45,6 +50,23 @@
     if ([self.refreshControl isRefreshing]) {
         [self.refreshControl endRefreshing];
     }
+}
+
+- (void)showNoUpdateAlert
+{
+    NSDate *lastUpdate = [[NSUserDefaults standardUserDefaults] objectForKey:sharedKeyLastUpdate];
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"dd/MM/yyyy"];
+    NSString *lastUpdateString = [formatter stringFromDate:lastUpdate];
+    
+    NSString *noUpdateMessage = [NSString stringWithFormat:NSLocalizedString(@"no.update.message", nil), lastUpdateString];
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"warning.title", nil) message:noUpdateMessage preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction* okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+    [alertController addAction:okAction];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 
@@ -59,7 +81,7 @@
         
     } else {
         UILabel *noDataLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
-        noDataLabel.text = @"No data could be retrieved. \nPlease pull down to refresh.";
+        noDataLabel.text = NSLocalizedString(@"no.data.message", nil);
         noDataLabel.numberOfLines = 0;
         noDataLabel.textColor = [UIColor blackColor];
         noDataLabel.textAlignment = NSTextAlignmentCenter;

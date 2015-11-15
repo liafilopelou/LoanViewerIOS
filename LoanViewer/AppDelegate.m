@@ -39,8 +39,8 @@
     
     RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:[Loan mapping]
                                                                                             method:RKRequestMethodGET
-                                                                                       pathPattern:nil
-                                                                                           keyPath:nil
+                                                                                       pathPattern:@"/v1/loans/search.json"
+                                                                                           keyPath:@"loans"
                                                                                        statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
     [objectManager addResponseDescriptor:responseDescriptor];
     

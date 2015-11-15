@@ -1,7 +1,9 @@
 
 #import "LFLoanFeeder.h"
 #import <RestKit/RestKit.h>
+#import "Loan.h"
 
+NSString * const sharedKeyLastUpdate = @"LastUpdate";
 
 @interface LFLoanFeeder ()
 
@@ -32,33 +34,34 @@
     return self;
 }
 
-- (void)retrieveLoansFeedForSuccess:(void (^)(NSArray *loans))successBLock failure:(void (^)(void))failureBlock
+- (void)retrieveLoansFeedForSuccess:(void (^)(NSArray *updatedLoans))successBLock failure:(void (^)(NSArray *existingLoans))failureBlock
 {
     [[RKObjectManager sharedManager] getObjectsAtPath:self.requestPath parameters:self.requestParameters success: ^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
         
-        NSArray *loans = [self fetchLoans];
-        if (loans) {
-            successBLock(loans);
+        if (mappingResult.array) {
+            [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:sharedKeyLastUpdate];
+            successBLock(mappingResult.array);
         }
         else {
-            failureBlock();
+            failureBlock([self fetchLoans]);
         }
      }
      failure: ^(RKObjectRequestOperation *operation, NSError *error) {
          
+         failureBlock([self fetchLoans]);
+         
          RKLogError(@"Load failed with error: %@", error);
-         failureBlock();
      }];
 }
 
 - (NSArray *)fetchLoans
 {
     NSManagedObjectContext *context = [RKManagedObjectStore defaultStore].mainQueueManagedObjectContext;
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Loan"];
-    
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:[Loan entityName]];
+
     NSError *error = nil;
     NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
-    
+
     return fetchedObjects;
 }
 
