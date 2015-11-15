@@ -6,6 +6,7 @@
 @interface LFLoanFeeder ()
 
 @property (strong, nonatomic) NSString *requestPath;
+@property (strong, nonatomic) NSDictionary *requestParameters;
 
 @end
 
@@ -26,13 +27,14 @@
 {
     if (self = [super init]) {
         self.requestPath = @"/v1/loans/search.json";
+        self.requestParameters = @{ @"status" : @"fundraising" };
     }
     return self;
 }
 
 - (void)retrieveLoansFeedForSuccess:(void (^)(NSArray *loans))successBLock failure:(void (^)(void))failureBlock
 {
-    [[RKObjectManager sharedManager] getObjectsAtPath:self.requestPath parameters:nil success: ^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+    [[RKObjectManager sharedManager] getObjectsAtPath:self.requestPath parameters:self.requestParameters success: ^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
         
         NSArray *loans = [self fetchLoans];
         if (loans) {
