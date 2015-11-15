@@ -20,12 +20,31 @@
     
     self.title = NSLocalizedString(@"loans.title", nil);
     
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self
+                            action:@selector(requestLoans)
+                  forControlEvents:UIControlEventValueChanged];
+    
+    [self requestLoans];
+}
+
+- (void)requestLoans
+{
     [[LFLoanFeeder sharedFeeder] retrieveLoansFeedForSuccess:^(NSArray *loans) {
         self.loans = loans;
-        [self.tableView reloadData];
+        [self refreshView];
     } failure:^{
+        [self refreshView];
         NSLog(@"Error during feed retrieval");
     }];
+}
+
+- (void)refreshView
+{
+    [self.tableView reloadData];
+    if ([self.refreshControl isRefreshing]) {
+        [self.refreshControl endRefreshing];
+    }
 }
 
 
@@ -35,6 +54,7 @@
 {
     if (self.loans.count > 0) {
         self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+        self.tableView.backgroundView = nil;
         return 1;
         
     } else {
