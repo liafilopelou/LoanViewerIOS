@@ -66,10 +66,8 @@
     [formatter setDateFormat:@"dd/MM/yyyy"];
     NSString *lastUpdateString = [formatter stringFromDate:lastUpdate];
     
-    NSString *noUpdateMessage = [NSString stringWithFormat:NSLocalizedString(@"no.update.message", nil), lastUpdateString];
-    
-    [TSMessage showNotificationWithTitle:@"Not able to update data"
-                                subtitle:[NSString stringWithFormat:@"Showing loans from %@", lastUpdateString]
+    [TSMessage showNotificationWithTitle:NSLocalizedString(@"no.update.message", nil)
+                                subtitle:[NSString stringWithFormat:NSLocalizedString(@"last.update.message", nil), lastUpdateString]
                                     type:TSMessageNotificationTypeWarning];
 }
 
