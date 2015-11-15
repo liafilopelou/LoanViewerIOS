@@ -40,6 +40,7 @@ NSString * const sharedKeyLastUpdate = @"LastUpdate";
         
         if (mappingResult.array) {
             [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:sharedKeyLastUpdate];
+            [[NSUserDefaults standardUserDefaults] synchronize];
             successBLock(mappingResult.array);
         }
         else {

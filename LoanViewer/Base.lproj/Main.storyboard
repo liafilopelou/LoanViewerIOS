@@ -75,14 +75,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="AyG-hm-9ar">
-                                <rect key="frame" x="279" y="80" width="42" height="103"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="AyG-hm-9ar">
+                                <rect key="frame" x="279" y="80" width="42" height="144"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="O4H-Xf-vqd">
-                                        <rect key="frame" x="0.0" y="0.0" width="42" height="103"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="O4H-Xf-vqd">
+                                        <rect key="frame" x="0.0" y="0.0" width="42" height="144"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="C1B-y7-qVu">
-                                                <rect key="frame" x="0.0" y="0.0" width="42" height="103"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="C1B-y7-qVu">
+                                                <rect key="frame" x="0.0" y="0.0" width="42" height="144"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RZw-sN-qDj">
                                                         <rect key="frame" x="0.0" y="0.0" width="42" height="21"/>
@@ -102,6 +102,12 @@
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aPc-1L-s3p">
+                                                        <rect key="frame" x="0.0" y="123" width="42" height="21"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
@@ -117,6 +123,7 @@
                     </view>
                     <connections>
                         <outlet property="activityLabel" destination="cUo-tf-u5F" id="sII-p2-qVH"/>
+                        <outlet property="locationLabel" destination="aPc-1L-s3p" id="UdG-CC-1vs"/>
                         <outlet property="sectorLabel" destination="Bjk-Hp-q86" id="DYZ-qg-8uZ"/>
                         <outlet property="statusLabel" destination="RZw-sN-qDj" id="xnS-6Z-63B"/>
                     </connections>
