@@ -34,4 +34,9 @@
     return _mapping;
 }
 
++ (NSString *)entityName
+{
+    return @"Location";
+}
+
 @end

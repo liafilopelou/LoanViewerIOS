@@ -43,4 +43,9 @@
     return _mapping;
 }
 
++ (NSString *)entityName
+{
+    return @"Loan";
+}
+
 @end

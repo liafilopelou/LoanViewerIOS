@@ -26,6 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSManagedObject *location;
 
 + (RKObjectMapping *)mapping;
++ (NSString *)entityName;
 
 @end
 

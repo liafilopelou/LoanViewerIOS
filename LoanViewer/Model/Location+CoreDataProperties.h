@@ -22,6 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) Geo *geo;
 
 + (RKObjectMapping *)mapping;
++ (NSString *)entityName;
 
 @end
 
