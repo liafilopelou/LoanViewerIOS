@@ -4,3 +4,4 @@
 "no.update.message" = "Not able to update data.";
 "last.update.message" = "Last loan update: %@.";
 "warning.title" = "Waring";
+"updating.message" = "Updating";

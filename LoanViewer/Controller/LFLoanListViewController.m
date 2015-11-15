@@ -5,6 +5,7 @@
 #import "LFLoanFeeder.h"
 #import "Loan.h"
 #import "TSMessage.h"
+#import "MBProgressHUD.h"
 
 @interface LFLoanListViewController ()
 
@@ -26,26 +27,43 @@
                             action:@selector(requestLoans)
                   forControlEvents:UIControlEventValueChanged];
     
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
     [self requestLoans];
 }
 
 - (void)requestLoans
 {
-    [[LFLoanFeeder sharedFeeder] retrieveLoansFeedForSuccess:^(NSArray *updatedLoans) {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    hud.mode = MBProgressHUDModeDeterminate;
+    hud.dimBackground = YES;
+    hud.labelText = NSLocalizedString(@"updating.message", nil);
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
         
-        [self updateWithLoans:updatedLoans];
+        [[LFLoanFeeder sharedFeeder] retrieveLoansFeedForSuccess:^(NSArray *updatedLoans) {
+            
+            [self updateWithLoans:updatedLoans];
+            
+        } failure:^(NSArray *fetchedLoans) {
+            
+            if (fetchedLoans) {
+                [self updateWithLoans:fetchedLoans];
+                [self showNoUpdateAlert];
+            }
+            else {
+                [self setNoDataBackground];
+            }
+        }];
         
-    } failure:^(NSArray *fetchedLoans) {
-        
-        if (fetchedLoans) {
-            [self updateWithLoans:fetchedLoans];
-            [self showNoUpdateAlert];
-        }
-    }];
+    });
 }
 
 - (void)updateWithLoans:(NSArray *)loans
 {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
+    });
+    
     self.loans = loans;
     [self refreshView];
 }
@@ -63,12 +81,24 @@
     NSDate *lastUpdate = [[NSUserDefaults standardUserDefaults] objectForKey:sharedKeyLastUpdate];
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"dd/MM/yyyy"];
+    [formatter setDateFormat:@"dd/MM/yyyy 'at' HH:mm"];
     NSString *lastUpdateString = [formatter stringFromDate:lastUpdate];
     
     [TSMessage showNotificationWithTitle:NSLocalizedString(@"no.update.message", nil)
                                 subtitle:[NSString stringWithFormat:NSLocalizedString(@"last.update.message", nil), lastUpdateString]
                                     type:TSMessageNotificationTypeWarning];
+}
+
+- (void)setNoDataBackground
+{
+    UILabel *noDataLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
+    noDataLabel.text = NSLocalizedString(@"no.data.message", nil);
+    noDataLabel.numberOfLines = 0;
+    noDataLabel.textColor = [UIColor blackColor];
+    noDataLabel.textAlignment = NSTextAlignmentCenter;
+    [noDataLabel sizeToFit];
+    self.tableView.backgroundView = noDataLabel;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
 
@@ -82,18 +112,10 @@
         return 1;
         
     } else {
-        UILabel *noDataLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
-        noDataLabel.text = NSLocalizedString(@"no.data.message", nil);
-        noDataLabel.numberOfLines = 0;
-        noDataLabel.textColor = [UIColor blackColor];
-        noDataLabel.textAlignment = NSTextAlignmentCenter;
-        [noDataLabel sizeToFit];
-        self.tableView.backgroundView = noDataLabel;
-        
-        self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        return 0;
     }
-    
-    return 0;
+   
+    //return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

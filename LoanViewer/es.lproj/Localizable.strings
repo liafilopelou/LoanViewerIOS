@@ -4,3 +4,4 @@
 "no.update.message" = "Los datos no se han podido actualizar.";
 "last.update.message" = "Ultima actualización de prestamos: %@.";
 "warning.title" = "Aviso";
+"updating.message" = "Actualizando";
