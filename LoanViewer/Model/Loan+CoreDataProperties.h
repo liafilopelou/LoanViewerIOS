@@ -10,6 +10,9 @@
 //
 
 #import "Loan.h"
+#import <RestKit/RestKit.h>
+
+@class Location;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -21,6 +24,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSString *activity;
 @property (nullable, nonatomic, retain) NSString *sector;
 @property (nullable, nonatomic, retain) NSManagedObject *location;
+
++ (RKObjectMapping *)mapping;
 
 @end
 

@@ -10,6 +10,7 @@
 //
 
 #import "Location.h"
+#import <RestKit/RestKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -19,6 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSString *country;
 @property (nullable, nonatomic, retain) NSString *town;
 @property (nullable, nonatomic, retain) Geo *geo;
+
++ (RKObjectMapping *)mapping;
 
 @end
 

@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import <RestKit/CoreData.h>
 #import <RestKit/RestKit.h>
+#import "Loan+CoreDataProperties.h"
 
 @interface AppDelegate ()
 
@@ -34,34 +35,11 @@
     NSAssert(persistentStore, @"Failed to add persistent store with error: %@", error);
     [managedObjectStore createManagedObjectContexts];
     
+    managedObjectStore.managedObjectCache = [[RKInMemoryManagedObjectCache alloc] initWithManagedObjectContext:managedObjectStore.persistentStoreManagedObjectContext];
     
-    RKEntityMapping *loanMapping = [RKEntityMapping mappingForEntityForName:@"Loan" inManagedObjectStore:managedObjectStore];
-    loanMapping.identificationAttributes = @[ @"loanId" ];
-    [loanMapping addAttributeMappingsFromDictionary:
-     @{
-       @"id" : @"loanId",
-       @"name" : @"name",
-       @"status" : @"status",
-       @"activity" : @"activity",
-       @"sector" : @"sector"
-       }
-     ];
-    
-    RKEntityMapping *locationMapping = [RKEntityMapping mappingForEntityForName:@"Location" inManagedObjectStore:managedObjectStore];
-    [loanMapping addAttributeMappingsFromDictionary:
-     @{
-       @"country_code" : @"countryCode",
-       @"country" : @"country",
-       @"town" : @"town"
-       }
-     ];
-    
-    [loanMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"location" toKeyPath:@"location" withMapping:locationMapping]];
-
-    
-    RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:loanMapping
+    RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:[Loan mapping]
                                                                                             method:RKRequestMethodGET
-                                                                                       pathPattern:@"/v1/loans/search.json"
+                                                                                       pathPattern:nil
                                                                                            keyPath:nil
                                                                                        statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
     [objectManager addResponseDescriptor:responseDescriptor];
