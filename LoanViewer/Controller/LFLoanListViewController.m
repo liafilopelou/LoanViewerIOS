@@ -4,6 +4,7 @@
 #import "LFLoanDetailsViewController.h"
 #import "LFLoanFeeder.h"
 #import "Loan.h"
+#import "TSMessage.h"
 
 @interface LFLoanListViewController ()
 
@@ -30,18 +31,23 @@
 
 - (void)requestLoans
 {
-    [[LFLoanFeeder sharedFeeder] retrieveLoansFeedForSuccess:^(NSArray *loans) {
+    [[LFLoanFeeder sharedFeeder] retrieveLoansFeedForSuccess:^(NSArray *updatedLoans) {
         
-        self.loans = loans;
-        [self refreshView];
+        [self updateWithLoans:updatedLoans];
         
-    } failure:^(NSArray *loans) {
+    } failure:^(NSArray *fetchedLoans) {
         
-        if (loans) {
-            [self refreshView];
+        if (fetchedLoans) {
+            [self updateWithLoans:fetchedLoans];
             [self showNoUpdateAlert];
         }
     }];
+}
+
+- (void)updateWithLoans:(NSArray *)loans
+{
+    self.loans = loans;
+    [self refreshView];
 }
 
 - (void)refreshView
@@ -62,11 +68,9 @@
     
     NSString *noUpdateMessage = [NSString stringWithFormat:NSLocalizedString(@"no.update.message", nil), lastUpdateString];
     
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"warning.title", nil) message:noUpdateMessage preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction* okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-    [alertController addAction:okAction];
-    
-    [self presentViewController:alertController animated:YES completion:nil];
+    [TSMessage showNotificationWithTitle:@"Not able to update data"
+                                subtitle:[NSString stringWithFormat:@"Showing loans from %@", lastUpdateString]
+                                    type:TSMessageNotificationTypeWarning];
 }
 
 

@@ -35,8 +35,6 @@
     NSAssert(persistentStore, @"Failed to add persistent store with error: %@", error);
     [managedObjectStore createManagedObjectContexts];
     
-    managedObjectStore.managedObjectCache = [[RKInMemoryManagedObjectCache alloc] initWithManagedObjectContext:managedObjectStore.persistentStoreManagedObjectContext];
-    
     RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:[Loan mapping]
                                                                                             method:RKRequestMethodGET
                                                                                        pathPattern:@"/v1/loans/search.json"
