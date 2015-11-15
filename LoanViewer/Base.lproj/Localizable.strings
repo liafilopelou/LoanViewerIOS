@@ -1,2 +1,5 @@
 
 "loans.title" = "Loans";
+"no.data.message" = "No data could be retrieved. \nPlease pull down to refresh.";
+"no.update.message" = "Not able to update data. \nShowing results from %@.";
+"warning.title" = "Waring";

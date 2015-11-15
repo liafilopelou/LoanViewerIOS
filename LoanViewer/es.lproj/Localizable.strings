@@ -1,2 +1,5 @@
 
 "loans.title" = "Prestamos";
+"no.data.message" = "No se han encontrado datos. \nPor favor, tire hacia abajo para actualizar.";
+"no.update.message" = "Los datos no se han podido actualizar. \nVisualizando resutados del %@.";
+"warning.title" = "Aviso";
