@@ -10,6 +10,7 @@
 //
 
 #import "Geo.h"
+#import <RestKit/RestKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -18,6 +19,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSString *level;
 @property (nullable, nonatomic, retain) NSString *pairs;
 @property (nullable, nonatomic, retain) NSString *type;
+
++ (RKObjectMapping *)mapping;
++ (NSString *)entityName;
 
 @end
 

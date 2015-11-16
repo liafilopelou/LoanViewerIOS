@@ -12,6 +12,8 @@
 #import "Location.h"
 #import <RestKit/RestKit.h>
 
+@class Geo;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Location (CoreDataProperties)

@@ -10,6 +10,7 @@
 //
 
 #import "Location+CoreDataProperties.h"
+#import "Geo+CoreDataProperties.h"
 
 @implementation Location (CoreDataProperties)
 
@@ -30,6 +31,8 @@
         [_mapping addAttributeMappingsFromDictionary: @{ @"country_code" : @"countryCode",
                                                          @"country" : @"country",
                                                          @"town" : @"town" }];
+        
+        [_mapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"geo" toKeyPath:@"geo" withMapping:[Geo mapping]]];
     });
     return _mapping;
 }
