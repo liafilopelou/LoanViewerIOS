@@ -9,10 +9,16 @@ static NSString *const PinAnnotationIdentifier = @"PinAnnotationView";
 
 @interface LFLoanDetailsViewController () <MKMapViewDelegate>
 
+@property (weak, nonatomic) IBOutlet UILabel *statusTitleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *activityTitleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *sectorTitleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *townTitleLabel;
+
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
 @property (weak, nonatomic) IBOutlet UILabel *activityLabel;
 @property (weak, nonatomic) IBOutlet UILabel *sectorLabel;
-@property (weak, nonatomic) IBOutlet UILabel *locationLabel;
+@property (weak, nonatomic) IBOutlet UILabel *townLabel;
+
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (assign, nonatomic) CLLocationCoordinate2D location2d;
 
@@ -27,16 +33,20 @@ static NSString *const PinAnnotationIdentifier = @"PinAnnotationView";
     
     self.title = self.loan.name;
     
+    Location *location = (Location *)self.loan.location;
+    Geo *geo = (Geo *)location.geo;
+    
+    self.statusTitleLabel.text = NSLocalizedString(@"status.title", nil);
+    self.activityTitleLabel.text = NSLocalizedString(@"activity.title", nil);
+    self.sectorTitleLabel.text = NSLocalizedString(@"sector.title", nil);
+    self.townTitleLabel.text = NSLocalizedString(@"town.title", nil);
+    
     self.statusLabel.text = self.loan.status;
     self.activityLabel.text = self.loan.activity;
     self.sectorLabel.text = self.loan.sector;
+    self.townLabel.text = location.town;
     
-    Location *location = (Location *)self.loan.location;
-    self.locationLabel.text = location.town;
-    
-    Geo *geo = (Geo *)location.geo;
     NSString *pairs = geo.pairs;
-    
     NSArray *coordinates = [pairs componentsSeparatedByString:@" "];
     NSString *latitude = coordinates[0];
     NSString *longtitude = coordinates[1];

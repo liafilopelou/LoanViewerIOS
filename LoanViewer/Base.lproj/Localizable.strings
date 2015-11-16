@@ -5,3 +5,8 @@
 "last.update.message" = "Last loan update: %@.";
 "warning.title" = "Waring";
 "updating.message" = "Updating";
+
+"status.title" = "Status:";
+"activity.title" = "Activity:";
+"sector.title" = "Sector:";
+"town.title" = "Town:";

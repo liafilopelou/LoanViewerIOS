@@ -5,3 +5,8 @@
 "last.update.message" = "Ultima actualización de prestamos: %@.";
 "warning.title" = "Aviso";
 "updating.message" = "Actualizando";
+
+"status.title" = "Status:";
+"activity.title" = "Actividad:";
+"sector.title" = "Sector:";
+"town.title" = "Ciudad:";
