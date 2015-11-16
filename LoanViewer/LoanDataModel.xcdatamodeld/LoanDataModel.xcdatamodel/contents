@@ -13,27 +13,15 @@
         <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Location" syncable="YES"/>
     </entity>
-    <entity name="LoanList" representedClassName="LoanList" syncable="YES">
-        <relationship name="loans" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Loan" syncable="YES"/>
-        <relationship name="paging" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Paging" syncable="YES"/>
-    </entity>
     <entity name="Location" representedClassName="Location" syncable="YES">
         <attribute name="country" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="countryCode" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="town" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="geo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Geo" syncable="YES"/>
     </entity>
-    <entity name="Paging" representedClassName="Paging" syncable="YES">
-        <attribute name="page" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <attribute name="pages" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <attribute name="pageSize" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <attribute name="total" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-    </entity>
     <elements>
+        <element name="Geo" positionX="-18" positionY="72" width="128" height="90"/>
         <element name="Loan" positionX="-54" positionY="-9" width="128" height="135"/>
         <element name="Location" positionX="-36" positionY="45" width="128" height="105"/>
-        <element name="Geo" positionX="-18" positionY="72" width="128" height="90"/>
-        <element name="LoanList" positionX="0" positionY="90" width="128" height="75"/>
-        <element name="Paging" positionX="18" positionY="99" width="128" height="105"/>
     </elements>
 </model>

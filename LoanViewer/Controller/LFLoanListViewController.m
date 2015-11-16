@@ -5,12 +5,11 @@
 #import "LFLoanFeeder.h"
 #import "Loan.h"
 #import "TSMessage.h"
-#import "MBProgressHUD.h"
 
 @interface LFLoanListViewController ()
 
 @property (strong, nonatomic) NSArray *loans;
-@property (strong, nonatomic) MBProgressHUD *hud;
+
 @end
 
 
@@ -27,10 +26,6 @@
                             action:@selector(requestLoans)
                   forControlEvents:UIControlEventValueChanged];
     
-    self.hud.mode = MBProgressHUDModeDeterminate;
-    self.hud.dimBackground = YES;
-    self.hud.labelText = NSLocalizedString(@"updating.message", nil);
-    
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     [self requestLoans];
@@ -38,15 +33,18 @@
 
 - (void)requestLoans
 {
-    self.hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    self.tableView.backgroundView = nil;
     
     [[LFLoanFeeder sharedFeeder] retrieveLoansFeedForSuccess:^(NSArray *updatedLoans) {
         
+        [self suspendRefreshControl];
         [self updateWithLoans:updatedLoans];
         
     } failure:^(NSArray *fetchedLoans) {
         
-        if (fetchedLoans)
+        [self suspendRefreshControl];
+        
+        if (fetchedLoans && fetchedLoans.count>0)
         {
             [self updateWithLoans:fetchedLoans];
             [self showNoUpdateAlert];
@@ -60,14 +58,12 @@
 
 - (void)updateWithLoans:(NSArray *)loans
 {
-    [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
     self.loans = loans;
-    [self refreshView];
+    [self.tableView reloadData];
 }
 
-- (void)refreshView
+- (void)suspendRefreshControl
 {
-    [self.tableView reloadData];
     if ([self.refreshControl isRefreshing])
     {
         [self.refreshControl endRefreshing];
