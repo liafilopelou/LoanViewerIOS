@@ -3,8 +3,6 @@
 #import <RestKit/RestKit.h>
 #import "Loan.h"
 
-NSString * const sharedKeyLastUpdate = @"LastUpdate";
-
 @interface LFLoanFeeder ()
 
 @property (strong, nonatomic) NSString *requestPath;

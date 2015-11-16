@@ -10,7 +10,7 @@
 @interface LFLoanListViewController ()
 
 @property (strong, nonatomic) NSArray *loans;
-
+@property (strong, nonatomic) MBProgressHUD *hud;
 @end
 
 
@@ -27,6 +27,10 @@
                             action:@selector(requestLoans)
                   forControlEvents:UIControlEventValueChanged];
     
+    self.hud.mode = MBProgressHUDModeDeterminate;
+    self.hud.dimBackground = YES;
+    self.hud.labelText = NSLocalizedString(@"updating.message", nil);
+    
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     [self requestLoans];
@@ -34,36 +38,29 @@
 
 - (void)requestLoans
 {
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
-    hud.mode = MBProgressHUDModeDeterminate;
-    hud.dimBackground = YES;
-    hud.labelText = NSLocalizedString(@"updating.message", nil);
-    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+    self.hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+    
+    [[LFLoanFeeder sharedFeeder] retrieveLoansFeedForSuccess:^(NSArray *updatedLoans) {
         
-        [[LFLoanFeeder sharedFeeder] retrieveLoansFeedForSuccess:^(NSArray *updatedLoans) {
-            
-            [self updateWithLoans:updatedLoans];
-            
-        } failure:^(NSArray *fetchedLoans) {
-            
-            if (fetchedLoans) {
-                [self updateWithLoans:fetchedLoans];
-                [self showNoUpdateAlert];
-            }
-            else {
-                [self setNoDataBackground];
-            }
-        }];
+        [self updateWithLoans:updatedLoans];
         
-    });
+    } failure:^(NSArray *fetchedLoans) {
+        
+        if (fetchedLoans)
+        {
+            [self updateWithLoans:fetchedLoans];
+            [self showNoUpdateAlert];
+        }
+        else
+        {
+            [self setNoDataBackground];
+        }
+    }];
 }
 
 - (void)updateWithLoans:(NSArray *)loans
 {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
-    });
-    
+    [MBProgressHUD hideHUDForView:self.navigationController.view animated:YES];
     self.loans = loans;
     [self refreshView];
 }
@@ -71,7 +68,8 @@
 - (void)refreshView
 {
     [self.tableView reloadData];
-    if ([self.refreshControl isRefreshing]) {
+    if ([self.refreshControl isRefreshing])
+    {
         [self.refreshControl endRefreshing];
     }
 }
@@ -79,13 +77,18 @@
 - (void)showNoUpdateAlert
 {
     NSDate *lastUpdate = [[NSUserDefaults standardUserDefaults] objectForKey:sharedKeyLastUpdate];
+    NSString *dateSubtitle = nil;
     
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"dd/MM/yyyy 'at' HH:mm"];
-    NSString *lastUpdateString = [formatter stringFromDate:lastUpdate];
+    if (lastUpdate)
+    {
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"dd/MM/yyyy 'at' HH:mm"];
+        NSString *lastUpdateString = [formatter stringFromDate:lastUpdate];
+        dateSubtitle = [NSString stringWithFormat:NSLocalizedString(@"last.update.message", nil), lastUpdateString];
+    }
     
     [TSMessage showNotificationWithTitle:NSLocalizedString(@"no.update.message", nil)
-                                subtitle:[NSString stringWithFormat:NSLocalizedString(@"last.update.message", nil), lastUpdateString]
+                                subtitle:dateSubtitle
                                     type:TSMessageNotificationTypeWarning];
 }
 
@@ -106,25 +109,24 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    if (self.loans.count > 0) {
+    NSInteger count = 0;
+    if (self.loans.count > 0)
+    {
         self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
         self.tableView.backgroundView = nil;
-        return 1;
-        
-    } else {
-        return 0;
+        count = 1;
     }
-   
-    //return 0;
+    return count;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
     return self.loans.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    LFLoanListCell *cell = [tableView dequeueReusableCellWithIdentifier:[LFLoanListCell reuseIdentifier] forIndexPath:indexPath];
+    LFLoanListCell *cell = (LFLoanListCell *)[tableView dequeueReusableCellWithIdentifier:[LFLoanListCell reuseIdentifier] forIndexPath:indexPath];
     cell.loan = self.loans[indexPath.row];
     
     return cell;

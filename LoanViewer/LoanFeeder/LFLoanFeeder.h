@@ -3,7 +3,7 @@
 
 @class Loan;
 
-extern NSString * const sharedKeyLastUpdate;
+static NSString * const sharedKeyLastUpdate = @"LastUpdate";
 
 @interface LFLoanFeeder : NSObject
 
